@@ -33,7 +33,6 @@ import com.example.androiddevchallenge.screens.WELCOME_SCREEN_ID
 import com.example.androiddevchallenge.screens.WelcomeScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +58,6 @@ fun MyApp() {
         composable(WELCOME_SCREEN_ID) {
             WelcomeScreen(
                 onSignUpClick = {
-
                 },
                 onLoginClick = {
                     navController.navigate(LOGIN_SCREEN_ID)

@@ -23,7 +23,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 import com.example.androiddevchallenge.R
 
@@ -36,7 +35,6 @@ val Lato = FontFamily(
     Font(R.font.lato_bold, FontWeight.Bold),
     Font(R.font.lato_regular, FontWeight.Normal)
 )
-
 
 // Set of Material typography styles to start with
 val typography = Typography(
@@ -56,7 +54,7 @@ val typography = Typography(
         fontFamily = Lato,
         fontSize = 14.sp,
         fontWeight = FontWeight.Bold
-        ),
+    ),
     body1 = TextStyle(
         fontFamily = Lato,
         fontSize = 14.sp,
@@ -78,5 +76,4 @@ val typography = Typography(
 
 @Composable
 fun btnColor(): Color =
-    if(isSystemInDarkTheme()) gray900 else white
-
+    if (isSystemInDarkTheme()) gray900 else white
