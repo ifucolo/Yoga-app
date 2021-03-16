@@ -15,28 +15,23 @@
  */
 package com.example.androiddevchallenge
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.view.Window
 import android.view.WindowManager
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.ui.graphics.luminance
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.view.WindowCompat
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.screens.LOGIN_SCREEN_ID
+import com.example.androiddevchallenge.screens.LoginScreen
+import com.example.androiddevchallenge.screens.WELCOME_SCREEN_ID
 import com.example.androiddevchallenge.screens.WelcomeScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
-import android.R
-import android.graphics.Color
-
-import androidx.core.content.ContextCompat
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -58,10 +53,26 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @Composable
 fun MyApp() {
-    WelcomeScreen(
-        onSignUpClick = {},
-        onLoginClick = {}
-    )
+    val navController = rememberNavController()
+
+    NavHost(navController, startDestination = WELCOME_SCREEN_ID) {
+        composable(WELCOME_SCREEN_ID) {
+            WelcomeScreen(
+                onSignUpClick = {
+
+                },
+                onLoginClick = {
+                    navController.navigate(LOGIN_SCREEN_ID)
+                }
+            )
+        }
+
+        composable(LOGIN_SCREEN_ID) {
+            LoginScreen(
+                onLoginClick = { }
+            )
+        }
+    }
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)

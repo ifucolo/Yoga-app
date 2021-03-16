@@ -22,6 +22,8 @@ import com.example.androiddevchallenge.components.ButtonMedium
 import com.example.androiddevchallenge.ui.theme.*
 
 
+const val WELCOME_SCREEN_ID = "welcome_screen"
+
 @Composable
 fun WelcomeScreen(
     onSignUpClick: () -> Unit,
