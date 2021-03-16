@@ -16,18 +16,37 @@
 package com.example.androiddevchallenge
 
 import android.os.Bundle
+import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.luminance
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowCompat
+import com.example.androiddevchallenge.screens.WelcomeScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
+import android.R
+import android.graphics.Color
+
+import androidx.core.content.ContextCompat
+
+
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.statusBarColor = Color.TRANSPARENT
+
         setContent {
             MyTheme {
                 MyApp()
@@ -39,9 +58,10 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @Composable
 fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
-    }
+    WelcomeScreen(
+        onSignUpClick = {},
+        onLoginClick = {}
+    )
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
