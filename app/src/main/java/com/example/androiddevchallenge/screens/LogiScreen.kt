@@ -53,7 +53,7 @@ fun LoginScreen(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colors.surface)
+            .background(MaterialTheme.colors.background)
     ) {
         val imageBgId = if (isSystemInDarkTheme()) R.drawable.img_dark_login else R.drawable.img_light_login
         val email = remember { mutableStateOf("") }

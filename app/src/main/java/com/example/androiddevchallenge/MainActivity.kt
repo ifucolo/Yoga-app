@@ -27,10 +27,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
-import com.example.androiddevchallenge.screens.LOGIN_SCREEN_ID
-import com.example.androiddevchallenge.screens.LoginScreen
-import com.example.androiddevchallenge.screens.WELCOME_SCREEN_ID
-import com.example.androiddevchallenge.screens.WelcomeScreen
+import com.example.androiddevchallenge.screens.*
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
@@ -67,8 +64,14 @@ fun MyApp() {
 
         composable(LOGIN_SCREEN_ID) {
             LoginScreen(
-                onLoginClick = { }
+                onLoginClick = {
+                    navController.navigate(HOME_SCREEN_ID)
+                }
             )
+        }
+
+        composable(HOME_SCREEN_ID) {
+            HomeScreen()
         }
     }
 }
